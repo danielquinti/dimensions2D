@@ -1,0 +1,135 @@
+@startuml
+
+
+package dimensions {
+class Director{
+    DISPLAY_SIZE
+    display
+    stack
+    run()
+    exit_program()
+    change_scene()
+    pause()
+    game_over()
+    action(action)
+    start()
+    retry()
+}
+
+
+class Scene{
+    director
+    update(*args)
+    events(*args)
+    draw(display)
+    play_music(name)
+}
+Scene <--> Director
+
+class Phase{
+    camera_boundaries
+    pannel_prompt
+    groups
+    offsetGroups
+    orange_portal
+    purple_portal
+    spawn_portal(portal,color)
+    events(event_list
+    collide_panels()
+    update(display()
+    draw(display)
+    game_over()
+}
+Phase --|> Scene
+Phase --> MyTiledMap
+Phase o-- Group
+Phase o-- OffsetGroup
+Phase --> EndPortal
+
+class OffsetGroup{
+    draw(surface,offset)
+}
+OffsetGroup -right-|> pygame.sprite.Group
+OffsetGroup o-- PortalBall
+OffsetGroup o-- PortalGun
+OffsetGroup o-- Portal
+OffsetGroup o-- Panel
+
+class MyTiledMap{
+    display_size
+    tmx_data
+    draw(display,layer_name,offset)
+}
+
+
+class Wall{
+    rect
+}
+
+
+class Panel{
+    image
+    enabled_rects
+    disabled_rects
+    added_rects
+    removed_rects
+    shown_layers
+    hidden_layers
+    update()
+    activate()
+}
+Panel --|> pygame.sprite.Sprite
+
+
+class PortalGun{
+    image
+    activate()
+}
+
+class EndPortal{
+    image
+    activate()
+}
+
+
+class Portal{
+    dir
+    color
+    cycle
+    images
+    rect
+    hitbox
+    update(phase)
+}
+Portal -up-|> pygame.sprite.Sprite
+
+
+class PortalBall{
+    speed
+    diag_speed
+    image
+    dir
+    color
+    animate()
+    update()
+    update(phase)
+}
+}
+package pygame.sprite  {
+    class Sprite
+    class Group
+}
+Group o-- Wall
+
+Wall --|> pygame.sprite.Sprite
+
+
+
+
+PortalBall --|> pygame.sprite.Sprite
+PortalGun --|> Panel
+EndPortal --|> Panel
+
+
+
+@enduml

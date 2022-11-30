@@ -1,0 +1,67 @@
+@startuml
+class Director{
+DISPLAY_SIZE
+display
+stack
+run()
+exit_program()
+change_scene()
+pause()
+game_over()
+action(action)
+start()
+retry()
+}
+class Scene{
+director
+update(*args)
+events(*args)
+draw(display)
+play_music(name)
+}
+class Menu{
+background
+elements
+events(event_list)
+draw(display)
+}
+
+class StartMenu{
+elements
+events(event_list)
+run_game()
+}
+class PauseMenu{
+elements
+events(event_list)
+}
+class GameOverMenu{
+elements
+}
+class WinMenu{
+elements
+}
+class GUIElement{
+image
+rect
+position_in_element(pos)
+draw()
+action()
+}
+
+class Button{
+callback
+action()
+}
+
+Menu-up-|>Scene
+StartMenu-up-|>Menu
+PauseMenu-up-|>Menu
+GameOverMenu-up-|>Menu
+WinMenu-up-|>Menu
+GUIElement-left->Menu
+Button-up-|>GUIElement
+Button-left->Menu
+Scene-up->Director
+note left of Scene: reference to director\nto communicate with it and\nget the display size
+@enduml

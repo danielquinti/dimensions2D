@@ -1,0 +1,44 @@
+@startuml
+actor user as user
+participant Director as dir
+participant Phase as phase
+participant PlayerWithPortal as player
+participant pygame.mixer.Sound as sound
+participant Group_player as pg
+participant PortalBall as ball
+participant Group_dynamic as dyn
+participant Group_drawable as draw
+participant Portal as portal
+participant ResourceManager as rm
+participant Pygame as pygame
+user->pg:LMB_CLICK
+dir->phase:update()
+phase->pygame:key.get_pressed()
+phase<--pygame:
+phase->pg:update(pressed,walls,solid_walls,ladders,enemies)
+pg->player:update(pressed,walls,solid_walls,ladders,enemies)
+player->pygame:mouse.get_pressed()
+player<--pygame:pressed
+player->sound:play()
+player<--sound
+player->phase:spawn(PortalBall(x,y,dir,color))
+phase->ball:init(x,y,dir,color)
+ball->rm:loadCoordFile("portal")
+ball<-rm:
+ball->rm:loadSpriteSheet("portal")
+ball<--rm:
+ball->rm:loadSound("create")
+ball<--rm:
+phase<--ball:
+phase->draw:add(portalball)
+phase<--draw
+phase->dyn:add(portalball)
+phase<--dyn
+phase->dyn:update(self)
+dyn->ball:update(phase)
+ball->sound:play()
+ball<--sound
+ball->spr:spritecollide(self,phase.portals_walls)
+ball<--spr:hits
+ball->phase:spawn_portal(Portal(x,y,dir,color),color)
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+actor User as player
+participant main
+participant Director as director
+participant StartMenu as start
+participant Button as button
+participant GUIElement as gui
+participant ResourceManager as rm
+participant Pygame as pg
+player->main: launch
+main->pg:init()
+main<-pg
+main-> director : push(StartMenu(director))
+director->start: init (director)
+start->rm: loadMenuImage(background_name)
+start<--rm: image
+start->button: init(self,'quit',(x,y),(w,h),self.director.exit_program)
+button->gui:init(self,menu,image_name,position,scale)
+gui->rm:loadMenuImage(image_name)
+gui<--rm:
+button<--gui:
+start<--button:
+director<--start
+main<--director
+main->director:run()
+player->pg: MOUSE_BUTTON_UP
+director->pg:event.get()
+director<--pg:event_list
+director->start:events(event_list)
+start->button:position_in_element(event.pos)
+start<--button:True
+start->button:action()
+button->director:exit_program()
+main<--director:
+main->pg:quit()
+@enduml

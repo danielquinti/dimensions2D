@@ -1,0 +1,39 @@
+@startuml
+class pygame.sprite.Sprite
+class Player{
+phase
+image
+rect
+hitbox
+animate()
+update(pressed)
+resync()
+}
+class Portal{
+dir
+color
+cycle
+images
+rect
+hitbox
+update()
+}
+class PlayerWithPortal{
+animate()
+update(pressed)
+}
+class PortalBall{
+speed
+diag_speed
+image
+dir
+color
+animate()
+update()
+}
+Player-up-|>pygame.sprite.Sprite
+PlayerWithPortal-up-|>Player
+Portal--PlayerWithPortal
+PortalBall-->Portal
+PortalBall--PlayerWithPortal
+@enduml

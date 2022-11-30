@@ -1,0 +1,36 @@
+{"frames": {
+
+"airdrone-1":
+{
+	"frame": {"x":1,"y":1,"w":80,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":80,"h":80},
+	"sourceSize": {"w":80,"h":80}
+},
+"airdrone-2":
+{
+	"frame": {"x":83,"y":1,"w":80,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":80,"h":80},
+	"sourceSize": {"w":80,"h":80}
+},
+"airdrone-3":
+{
+	"frame": {"x":165,"y":1,"w":80,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":80,"h":80},
+	"sourceSize": {"w":80,"h":80}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "airdrone.png",
+	"format": "RGBA8888",
+	"size": {"w":246,"h":82},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e676d0c02e2573dfd007c7cc69e8b066:1195e9df47658c4f85b7d3886dd2031c:996fa0c28f5aebf2de168a2e6dc37de7$"
+}
+}

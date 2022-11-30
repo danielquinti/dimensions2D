@@ -1,0 +1,32 @@
+@startuml
+actor user as user
+participant Director as dir
+participant Phase as phase
+participant Panel as panel
+participant pygame.mixer.Sound as sound
+participant Group_enabled as en
+participant Group_disabled as dis
+participant Turret as turr
+participant Pygame as pg
+user->pg:PRESS_KEY
+dir->phase:update()
+phase->pg:get_pressed()
+phase<--pg:
+phase->panel: activate()
+panel->sound:play()
+panel<--sound:
+panel->en:remove(rect)
+panel<--en
+panel->dis:add(rect)
+panel<--en
+panel->turr: disable()
+turr->turr:turning=True
+panel<--turr:
+panel->dis:update()
+dis->turr:update()
+turr->turr:turning=False
+panel<--turr:
+
+
+dir<--panel
+@enduml

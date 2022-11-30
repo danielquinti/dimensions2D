@@ -1,0 +1,36 @@
+{"frames": {
+
+"drone-1":
+{
+	"frame": {"x":1,"y":1,"w":96,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":32},
+	"sourceSize": {"w":96,"h":32}
+},
+"drone-2":
+{
+	"frame": {"x":1,"y":35,"w":96,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":32},
+	"sourceSize": {"w":96,"h":32}
+},
+"drone-3":
+{
+	"frame": {"x":1,"y":69,"w":96,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":32},
+	"sourceSize": {"w":96,"h":32}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "drone.png",
+	"format": "RGBA8888",
+	"size": {"w":98,"h":102},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:33b1bffc41df72dbe5f89fe6769f2150:ce63da264622950e43d86b4be2d914f1:c98d648f601c46a8c819f6a574ceef30$"
+}
+}

@@ -1,0 +1,42 @@
+@startuml
+class pygame.sprite.Sprite
+class Enemy{
+disable()
+enable()
+}
+class Drone{
+oscillation_offset
+images
+rect
+update()
+}
+
+class AirDrone{
+oscillation_offset
+images
+rect
+update()
+}
+
+class SurvCamera{
+offset
+images
+rect
+update()
+disable}
+}
+
+class Turret{
+offset
+images
+rect
+update()
+disable()
+}
+
+Enemy-up-|>pygame.sprite.Sprite
+Drone-up-|>Enemy
+AirDrone-up-|>Enemy
+SurvCamera-up-|>Enemy
+Turret-up-|>Enemy
+@enduml
